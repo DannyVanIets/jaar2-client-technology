@@ -1,0 +1,80 @@
+<html>
+<head>
+    <link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine/jasmine.css">
+    <script type="text/javascript" src="jasmine/lib/jasmine/jasmine.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine/jasmine-html.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine/boot.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../dist/memes/meme-list.json"></script>
+    <script src="../dist/app.js"></script>
+    <link rel="stylesheet" href="../dist/style.css">
+
+</head>
+<body>
+
+<img id="mario" src="../dist/img/mario.png">
+<div id="score">
+    0
+</div>
+<div id="funboard">
+    <ul id="memes">
+
+    </ul>
+</div>
+
+<script>
+
+    const domIds = {
+        memeList: 'memes',
+        mario: 'mario'
+    };
+
+    describe('opdracht 3 memeList', () => {
+
+        describe('opdracht 3e', () => {
+            it('de constructor vereist parameter memeList heeft memes', () => {
+                const f = () => {
+                    new Meme([])
+                };
+                
+                //opdracht voor de student
+            })
+
+            it('de constructor gooit geen error indien memeList verstrekt is', () => {
+                const f = () => {
+                    new Meme([{}])
+                };
+
+               //opdracht voor de student
+            })
+
+            it('heeft een methode getNextMeme', () => {
+                const m = new Meme([{}]);
+
+                //opdracht voor de student 
+            })
+
+            it('heeft een methode searchMeme', () => {
+                const m = new Meme([{}]);
+
+                //opdracht voor de student
+            })
+        })
+
+    })
+
+
+    describe('opdracht 4 modules, Promise en AJAX', () => {
+
+
+    	//opdracht voor de student
+
+
+    })
+
+</script>
+
+
+</body>
+</html>

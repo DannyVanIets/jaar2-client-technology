@@ -1,0 +1,79 @@
+#funboard ul{
+        /*opdracht voor student*/
+}
+
+#score {
+    font-size: 40px;
+    font-weight: bold;
+    vertical-align: middle;
+    height: 60px;
+    width: 60px;
+}
+
+img#mario {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    left: 30%;
+    animation-name: mario;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.meme-pic{
+    width: 100px;
+    height: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+    @keyframes mario {
+        0% {
+            top: 5%;
+        }
+
+        25% {
+            top: 20%;
+        }
+
+        50% {
+            top: 40%;
+        }
+
+        75% {
+            top: 60%;
+        }
+
+        100% {
+            top: 80%;
+        }
+    }
+}
+@media only screen and (min-width: 601px) {
+    @keyframes mario {
+        0% {
+            left: 90%;
+            top: 0;
+        }
+
+        25% {
+            left: 75%;
+            top: 25%;
+        }
+
+        50% {
+            left: 50%;
+            top: 50%;
+        }
+
+        75% {
+            left: 25%;
+            top: 25%;
+        }
+
+        100% {
+            left: 10%;
+            top: 0;
+        }
+    }
+}

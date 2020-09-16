@@ -1,0 +1,25 @@
+
+/* Opdracht 2b en 2c */
+/* @media (min-width: 300px) { }*/
+/* @media (min-width: 1200px) {}*/
+
+
+/* Opdracht 2d */
+.fade-in {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+

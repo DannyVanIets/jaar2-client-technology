@@ -1,0 +1,152 @@
+<html>
+<head>
+    <link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine/jasmine.css">
+    <script type="text/javascript" src="jasmine/lib/jasmine/jasmine.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine/jasmine-html.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine/boot.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+<script>
+
+    const studenten = [
+        {naam: 'Willem van Gelder', snr: 's123'},
+        {naam: 'Jan Pietersen', snr: 's456'},
+        {naam: 'Marieke Nelissen', snr: 's789'}
+    ];
+
+    const resultaten = [
+        ['s123', 4],
+        ['s456', 7],
+        ['s789', 'niet aanwezig']
+    ];
+
+    /*Opdracht 3a*/
+    const resultatenLijst = function (studenten, resultaten) {
+            //opdracht voor student
+    };
+
+    /*Opdracht 3b*/
+    const nietAanwezigeStudenten = function (resultaatLijst) {
+        return resultaatLijst.filter(s => s.resultaat == 'niet aanwezig');
+    };
+
+    /*Opdracht 3c*/
+    const zoekStudentOpSnr = function (studenten, snr) {
+            //opdracht voor student
+    };
+
+    /*Opdracht 3d, 3e, 3f, 3g*/
+        //opdracht voor student
+
+    /*Opdracht 4a en 4b*/
+        //opdracht voor student
+
+    describe('opdracht 3 Studentlijsten', () => {
+
+        describe('opdracht 3a resultaatlijst', () => {
+            it('heeft voor elke student een resultaat', () => {
+                const studentLijst = resultatenLijst(studenten, resultaten);
+                console.log(studentLijst)
+                for (let s of studentLijst) {
+                    expect(s.resultaat).toBeDefined();
+                }
+            })
+        });
+
+        describe('opdracht 3b niet aanwezige studenten', () => {
+            it('heeft 1 student met naam Marieke Nelissen', () => {
+                const studentLijst = resultatenLijst(studenten, resultaten);
+                const nietAanwezig = nietAanwezigeStudenten(studentLijst);
+                expect(nietAanwezig[0].naam).toEqual('Marieke Nelissen');
+            })
+        });
+
+        describe('opdracht 3c en 3d zoek studenten op snr', () => {
+            it('heeft student met naam Jan Pietersen', () => {
+                const student = zoekStudentOpSnr(studenten, 's456');
+                expect(student.naam).toEqual('Jan Pietersen');
+            });
+
+            //opdracht!
+            it('gooit een error bij snr s!@#', () => {
+                let f = () => {
+                    zoekStudentOpSnr(studenten, 's!@#');
+                };
+                expect(f).toThrow(new Error('Student niet gevonden.'));
+            });
+        });
+
+        describe('opdracht 3e, 3f, 3g ,3h en 3i klasse Student', () => {
+            it('s is een instantie van Student', () => {
+                let s = new Student('Jannie Klaassen', 's007');
+                expect(s).toBeInstanceOf(Student);
+            });
+
+            it('heeft properties snr en naam', () => {
+                let s = new Student('Jannie Klaassen', 's007');
+                expect(s.naam).toEqual('Jannie Klaassen');
+                expect(s.snr).toEqual('s007');
+            });
+
+            it('gooit een error als een parameter mist', () => {
+                let fs1 = () => {
+                    new Student(null, 's007')
+                };
+                let fs2 = () => {
+                    new Student('Jannie Klaassen')
+                };
+
+                expect(fs1).toThrow(new Error('Parameter naam mist.'));
+                expect(fs2).toThrow(new Error('Parameter snr mist.'));
+
+            });
+
+            it('retourneert een string bij toString', () => {
+                let s = new Student('Quinten Bolt', 's999');
+                expect(s.toString()).toEqual('naam: Quinten Bolt, studentnummer: s999')
+                console.log(s.toString())
+            });
+
+            it('slaat een resultaat op bij een student', () => {
+                let s = new Student('Quinten Bolt', 's999');
+                s.nieuwResultaat(8);
+                expect(s.resultaten[0]).toEqual(8);
+            });
+
+        })
+    })
+
+    describe('opdracht 4 Module Voortgang', () => {
+
+        describe('opdracht 4a parameters verstrekken', () => {
+
+            it('heeft een methode init', () => {
+                expect(Voortgang.init).toBeDefined();
+            });
+
+            it('heeft een stateMap met properties studenten en resultaten', () => {
+                Voortgang.init(studenten, resultaten);
+                expect(Voortgang.stateMap.studenten.length).toBeGreaterThan(0);
+                expect(Voortgang.stateMap.resultaten.length).toBeGreaterThan(0);
+            });
+        })
+
+        describe('opdracht 4b lijst met studenten die een voldoende hebben', () => {
+            it('heeft student Jan Pietersen', () => {
+                Voortgang.init(studenten, resultaten);
+                expect(Voortgang.heeftVoldoende().length).toEqual(1);
+                expect(Voortgang.heeftVoldoende()[0].naam).toEqual('Jan Pietersen');
+            })
+        })
+
+    });
+
+</script>
+
+
+</body>
+</html>

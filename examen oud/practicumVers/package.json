@@ -1,0 +1,17 @@
+{
+  "name": "practicum_client",
+  "version": "1.0.0",
+  "description": "veel sterkte met het maken van je practicum!",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-order": "^1.2.0"
+  }
+}

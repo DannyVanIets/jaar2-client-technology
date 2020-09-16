@@ -1,0 +1,162 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
+    font-size:65%;
+    color: #23324E;
+    background: url('flowers.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h1{
+    color: white;
+}
+
+#col1 h1{
+    color: #4e555b;
+    font-weight: bold;
+    margin-bottom:0.5em;
+    font-size: 150%;
+}
+
+#elon{
+    float: right;
+}
+
+.wownice{
+    color:blue;
+}
+
+
+
+#footer{
+    height: 40px;
+    background-color: #0c7cd5;
+}
+
+
+#content{
+    padding: 20px;
+    background-color: white;
+    //overflow:hidden;
+    //TOEGEVOEGD:
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#content ol{
+    padding-left: 20px;
+}
+
+//TOEGEVOEGD
+@media (min-width: 800px) {
+    article {
+        width: 50%;
+    }
+}
+
+
+
+#col1{
+//    position:relative;
+//    float:left;
+//    width:50%;
+//    height:auto;
+
+}
+
+#col2{
+//    position:relative;
+//    float:left;
+//    width:50%;
+//    height:auto;
+//    text-align: center;
+}
+
+#header{
+    padding: 10px 20px;
+    height: 60px;
+    background-color: #0c7cd5;
+}
+
+#menu{
+    float: left;
+    position: relative;
+    overflow:visible;
+}
+
+#menu ul{
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+#menu ul li{
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+@media (max-width: 800px){
+    #header{
+        height: 100px;
+    }
+
+    #menu{
+        display: flex;
+        width: 100%;
+    }
+
+    #menu ul{
+        display: flex;
+        width: 100%;
+        flex-flow: column;
+    }
+
+    #menu ul li{
+        display: flex;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    #menu ul li a{
+        width: 100%;
+    }
+}
+
+#menu ul li a{
+    font-weight:normal;
+    padding: 4px 8px;
+    background: #f6f6f6; /* Old browsers */
+    color:blue;
+    border:1px solid #bbb;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#menu ul li a:hover{
+    background: #ffffff; /* Old browsers */
+}
+
+
+
+
+
+
+#container {
+    -moz-box-shadow:    6px 6px 10px 6px #5a6c98;
+    -webkit-box-shadow: 6px 6px 10px 6px #5a6c98;
+    box-shadow:         6px 6px 10px 6px #5a6c98;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top: 60px;
+    width: 850px;
+}
+
+

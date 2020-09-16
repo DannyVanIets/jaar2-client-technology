@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practicum chatbox</title>
+    <script src="../dist/app.js"></script>
+    <link rel="stylesheet" href="../dist/style.css">
+</head>
+<body>
+<h1>Practicum</h1>
+
+<button id="toon-chat" style="display: block" onclick="ChatLib.prototype.sluitChatbox('chat-box', 'toon-chat')">Toon chat</button>
+
+<!-- Opdracht 2a -->
+<div id="chat-box" class="" style="display: none">
+    <div>
+        <p>Chatten met Sjaak</p>
+        <button id="sluit-chat" onclick="ChatLib.prototype.sluitChatbox('chat-box', 'toon-chat')">x</button>
+    </div>
+    <div class="content">
+        <textarea rows="4" id="chat-bericht"></textarea>
+        <div id="verzend-bericht">Verzend</div>
+    </div>
+    <div>
+        <p>misschien wel het beste communicatiekanaal ter wereld...</p>
+    </div>
+</div>
+
+</body>
+</html>
+

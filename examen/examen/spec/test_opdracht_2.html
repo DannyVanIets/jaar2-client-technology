@@ -1,0 +1,190 @@
+<html>
+<head>
+    <link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine/jasmine.css">
+    <script type="text/javascript" src="jasmine/lib/jasmine/jasmine.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine/jasmine-html.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine/boot.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="toevoegen">
+        <input id="invoer" type="text">
+        <button onclick="onClick()">Toevoegen</button>
+    </div>
+
+    <table id="studenten_lijst">
+        <thead>
+            <th>Naam</th>
+            <th class="snummer">Studentnummer</th>
+        </thead>
+        <tbody id="rows">
+            <td>Gerrit Griebel</td>
+            <td class="snummer">s333</td>
+        </tbody>
+    </table>
+
+</div>
+
+<style>
+
+    /*Gegeven*/
+    .jasmine_html-reporter {
+        top: 0;
+        position: fixed;
+    }
+
+    /*Gegeven*/
+    .container {
+        top: 400px;
+        position: fixed;
+    }
+
+    /*Gegeven*/
+    .toevoegen {
+        margin-bottom: 20px;
+    }
+
+    /*Opdracht 2a*/
+    #studenten_lijst {
+        border: 2px solid red;
+        border-radius: 5px;
+    }
+
+    @media only screen and (max-width: 800px) {
+        .snummer {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+
+    const studentenLijst = [
+        {naam: 'Mark Rutte', snummer: '444'},
+        {naam: 'Job Cohen', snummer: '555'}
+    ];
+
+    /**
+     * Gegeven
+     * @returns {Promise<unknown>}
+     */
+    function getStudenten() {
+        return new Promise((resolve) => {
+            resolve(studentenLijst);
+        });
+    }
+
+    /**
+     * Opdracht 2b
+     * @param studenten
+     */
+    let addStudenten = function (studenten) {
+        if(studenten.length > 1){
+            studenten.forEach(function (student) {
+                var newRow = document.createElement("tr");
+                var newCell = document.createElement("td");
+
+                newCell.innerHTML = student.naam;
+                newRow.append(newCell);
+
+                document.getElementById('rows').appendChild(newRow);
+            });
+        } else {
+            var newRow = document.createElement("tr");
+            var newCell = document.createElement("td");
+
+            newCell.innerHTML = studenten.naam;
+            newRow.append(newCell);
+
+            document.getElementById('rows').appendChild(newRow);
+        }
+    };
+
+    /**
+     * Opdracht 2c
+     */
+    let laadStudenten = function () {
+            getStudenten().then(function (result) {
+                addStudenten(result);
+            });
+    };
+
+
+    /**
+     * Opdracht 2d
+     */
+     function onClick(){
+        var naam = document.getElementById('invoer').value;
+        addStudenten({naam: naam, snummer: 'onbekend'});
+        document.getElementById('invoer').value = "";
+    }
+
+    describe('opdracht 2 Tabel studenten', () => {
+
+        describe('opdracht 2a de tabel rand-styling', () => {
+            it('heeft een afgeschuinde hoek van 5px', () => {
+                let radius = $('table').css('border-radius');
+                expect(radius).toEqual('5px');
+            });
+
+            it('heeft rode lijn van 2 px', () => {
+                let line = $('table').css('border');
+                expect(line).toEqual('2px solid rgb(255, 0, 0)');
+            });
+
+        });
+
+        describe('opdracht 2b toevoegen van studenten aan de tabel met addStudenten', () => {
+            it('heeft Mark Rutte!', () => {
+                $('table > tbody').html('');
+                addStudenten(studentenLijst);
+                let found = $('table tr > td:contains(Rutte)').length;
+                expect(found).toEqual(1);
+            });
+
+            it('heeft Cohen!', () => {
+                $('table > tbody').html('');
+                addStudenten(studentenLijst);
+                let found = $('table tr > td:contains(Cohen)').length;
+                expect(found).toEqual(1);
+            });
+        });
+
+        describe('opdracht 2c toevoegen van studenten aan de tabel met laadStudenten', () => {
+            it('heeft Mark Rutte!', async () => {
+                $('table > tbody').html('');
+                await laadStudenten();
+                let found = $('table tr > td:contains(Rutte)').length;
+                expect(found).toEqual(1);
+            });
+
+            it('heeft Cohen!', async () => {
+                $('table > tbody').html('');
+                await laadStudenten();
+                let found = $('table tr > td:contains(Cohen)').length;
+                expect(found).toEqual(1);
+            });
+        });
+
+        describe('opdracht 2d toevoegen van student na invoer en klik', () => {
+            it('heeft Ilja Clabbers!', async () => {
+                $('table > tbody').html('');
+                $('#invoer').val('Ilja Clabbers');
+                $('button').trigger('click');
+                let found = $('table tr > td:contains(Clabbers)').length;
+                expect(found).toEqual(1);
+            });
+
+        });
+
+
+    })
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<html>
+<head>
+    <script src="../dist/app.js"></script>
+    <link rel="stylesheet" href="../dist/style.css">
+    <link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine/jasmine.css">
+    <script type="text/javascript" src="jasmine/lib/jasmine/jasmine.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine/jasmine-html.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine/boot.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine/mock-ajax.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<!-- Voor het gemak is hier de HTML overgenomen.
+Je hoeft deze html niet semantisch te maken (voor de opdracht moet dat in src/index.html)-->
+<div id="toon-chat">Toon chat</div>
+
+<div id="chat-box" class="">
+    <div>
+        <p>Chatten met Sjaak</p>
+        <button id="sluit-chat">x</button>
+    </div>
+    <div class="content">
+        <textarea rows="4" id="chat-bericht"></textarea>
+        <div id="verzend-bericht">Verzend</div>
+    </div>
+    <div>
+        <p>misschien wel het beste communicatiekanaal ter wereld...</p>
+    </div>
+</div>
+
+<script>
+
+    /**
+     * Deze variabele bevat alle id's van de HTML-tags. Makkelijk om te gebruiken in je code.
+     */
+    const domIds = {
+        toonKnop: 'toon-chat',
+        chatBox: 'chat-box',
+        sluitKnop: 'sluit-chat',
+        chatBericht: 'chat-bericht',
+        verzendKnop: 'verzend-bericht',
+
+    };
+
+    describe('opdracht 3 chat-lib', () => {
+
+        describe('opdracht 3b', () => {
+            it('heeft een klasse Chatlib beschikbaar', () => {
+                expect(ChatLib).toBeDefined();
+            })
+        });
+
+        describe('opdracht 3d sluitChat', () => {
+
+            it('zou de chatbox moeten verbergen', () => {
+                let domElement = domElement.show();
+
+                expect(domElement.is(':visible')).toBe(true);
+
+                const c= new ChatLib();
+
+                c.sluitChatbox();
+                expect(domElement.isPrototypeOf(':hidden')).toBe(true);
+            });
+
+            it('zou de toonKnop moeten tonen', () => {
+                //voeg hier je test toe
+            })
+        })
+    });
+
+    describe('opdracht 4 modules, Promise en AJAX', () => {
+
+        describe('opdracht 4d test mock response "message received"', () => {
+            it("zou de responseText: 'message received' moeten hebben", function () {
+                //voeg hier je test toe
+            });
+        })
+
+    });
+
+
+</script>
+
+
+</body>
+</html>

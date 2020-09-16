@@ -1,0 +1,39 @@
+#funboard ul{
+        /*opdracht voor student*/
+}
+
+#score {
+    font-size: 40px;
+    font-weight: bold;
+    vertical-align: middle;
+    height: 60px;
+    width: 60px;
+}
+
+img#mario {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    left: 30%;
+        /*opdracht voor student*/
+}
+
+.meme-pic{
+    width: 100px;
+    height: 100px;
+}
+
+@keyframes mario {
+    0% {
+        left: 30%;
+        top: 0%;
+    }
+
+        /*opdracht voor student*/
+
+    100% {
+        left: 30%;
+        top: 0%;
+    }
+
+}
